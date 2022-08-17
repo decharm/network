@@ -1,12 +1,21 @@
 import { EventEmitter } from "../util/emitter.ts";
 import { TCPClient } from "./client.ts";
 
+/**
+ * TCP server
+ */
 export class TCPServer {
     private listeners : Deno.Listener[] = [];
     
     public events : EventEmitter = new EventEmitter();
     public clients : TCPClient[] = [];
 
+    /**
+     * Binds the server to the given host and port
+     * @param host
+     * @param port
+     * @returns True if the server was successfully bound, false otherwise
+     */
     listen(host: string, port: number) : boolean {
         try {
             this.listeners.push(
@@ -36,6 +45,9 @@ export class TCPServer {
         }
     }
 
+    /**
+     * Starts the server
+     */
     start() {
         this.listeners.forEach(this.accept.bind(this));
     }

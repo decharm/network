@@ -1,3 +1,6 @@
+/**
+ * Under development.
+ */
 export class Packet {
     private bytes : Array<number>;
 
