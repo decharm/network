@@ -3,6 +3,7 @@
  */
 export class Packet {
     private bytes : Array<number>;
+    private cachedBuffer : Uint8Array | undefined;
 
     /**
      * Creates a new Packet.
@@ -173,6 +174,10 @@ export class Packet {
      * @returns The bytes of the Packet as a Uint8Array.
      */
     get buffer() : Uint8Array {
-        return new Uint8Array(this.bytes);
+        if (!this.cachedBuffer || this.cachedBuffer.length !== this.bytes.length) {
+            this.cachedBuffer = new Uint8Array(this.bytes);
+        }
+        
+        return this.cachedBuffer;
     }
 }
