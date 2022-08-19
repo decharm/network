@@ -12,8 +12,12 @@ export class Packet {
         this.bytes = bytes ? Array.from(bytes) : [];
     }
 
-    [Symbol.iterator]() : Iterator<number> {
-        return this.bytes[Symbol.iterator]();
+    /**
+     * Merges the given Packet into this Packet.
+     * @param packet The Packet to merge into this Packet.
+     */
+     merge(packet : Packet) : void {
+        this.bytes.push(...packet.bytes);
     }
 
     /**
@@ -158,6 +162,10 @@ export class Packet {
             }
         }
         return object;
+    }
+
+    [Symbol.iterator]() : Iterator<number> {
+        return this.bytes[Symbol.iterator]();
     }
 
     /**
