@@ -1,4 +1,4 @@
-import { Packet } from "../mod.ts";
+import { Packet } from "../src/mod.ts";
 
 const p = new Packet();
 

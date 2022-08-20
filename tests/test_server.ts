@@ -1,4 +1,4 @@
-import { TCPServer, TCPEvents, IEventConnect, IEventError, IEventListening } from "../mod.ts";
+import { TCPServer, TCPEvents, IEventConnect, IEventError, IEventListening } from "../src/mod.ts";
 
 const server = new TCPServer();
 

@@ -1,4 +1,4 @@
-import { EventEmitter } from "../mod.ts";
+import { EventEmitter } from "../src/mod.ts";
 
 const emitter = new EventEmitter();
 
