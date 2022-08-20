@@ -8,23 +8,27 @@ export class TCPEvents {
      * @param client The client that connected.
      */
     public static readonly CONNECT = "connected";
+
     /**
      * Emitted when a client disconnects from the server.
      * @EventEmitter callback signature: () => void
      */
     public static readonly DISCONNECT = "disconnected";
+
     /**
      * Emitted when an error occurs.
      * @EventEmitter callback signature: (error: Error) => void
      * @param error The error that occurred.
      */
     public static readonly ERROR = "error";
+
     /**
      * Emitted when the client receives data.
      * @EventEmitter callback signature: (data: Uint8Array) => void
      * @param data The data that was received.
      */
     public static readonly RECEIVED_DATA = "data";
+    
     /**
      * Emitted when the server is listening for connections.
      * @EventEmitter callback signature: ({host: string, port: number}) => void

@@ -5,3 +5,4 @@ await grantOrThrow({ name: "net" });
 
 export * from "./tcp/client.ts";
 export * from "./tcp/server.ts";
+export * from "./tcp/events.ts";
