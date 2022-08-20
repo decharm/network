@@ -5,8 +5,8 @@ import { EventEmitter } from "../util/emitter.ts";
  * TCP client
  */
 export class TCPClient {
-    private connection: Deno.Conn | null = null;
     public events : EventEmitter = new EventEmitter();
+    private connection: Deno.Conn | null = null;
     private isConnected = false;
 
     constructor(connection : Deno.Conn | null = null) {

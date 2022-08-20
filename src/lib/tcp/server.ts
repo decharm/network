@@ -46,6 +46,13 @@ export class TCPServer {
     }
 
     /**
+     * Closes the server
+     */
+    close() {
+        this.listeners.forEach(listener => listener.close());
+    }
+
+    /**
      * Starts the server
      */
     start() {

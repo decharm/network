@@ -6,28 +6,28 @@ import { TCPClient } from "./client.ts";
 /**
  * Interface used on event error callback.
  */
-export interface IEventError {
+export interface ITCPEventError {
     error : Error;
 }
 
 /**
  * Interface used on event connected callback.
  */
-export interface IEventConnect {
+export interface ITCPEventConnect {
     client : TCPClient;
 }
 
 /**
  * Interface used on event disconnected callback.
  */
-export interface IEventData {
+export interface ITCPEventData {
     data : Uint8Array;
 }
 
 /**
  * Interface used on event listening callback.
  */
-export interface IEventListening {
+export interface ITCPEventListening {
     address: {
         host: string;
         port: number;

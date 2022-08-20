@@ -1,4 +1,4 @@
-import { TCPClient, TCPEvents, IEventData } from "../src/mod.ts";
+import { TCPClient, TCPEvents, IEventData } from "../../src/mod.ts";
 
 const client = new TCPClient();
 
