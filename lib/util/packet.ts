@@ -17,8 +17,23 @@ export class Packet {
      * Merges the given Packet into this Packet.
      * @param packet The Packet to merge into this Packet.
      */
-     merge(packet : Packet) : void {
+    merge(packet : Packet) : void {
         this.bytes.push(...packet.bytes);
+    }
+
+    /**
+     * Empties the Packet.
+     */
+    emptify() : void {
+        this.bytes = [];
+    }
+
+    /**
+     * Merges the Uint8Array into the Packet.
+     * @param buffer The Uint8Array to merge into the Packet.
+     */
+    mergeU8Array(array : Uint8Array) : void {
+        this.bytes.push(...array);
     }
 
     /**

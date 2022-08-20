@@ -1,13 +1,13 @@
 // deno-lint-ignore-file no-explicit-any
 
 /**
- * Event emitter
+ * Event Emitter is a simple event class with the sole purpose of being lightweight and easy to use. It only provides 4 basic methods.
  */
 export class EventEmitter {
     private listeners: Map<string, ((...args: any)=>void)[]> = new Map();
     
     /**
-     * Adds a listener to the event
+     * Sets up a function that will be called whenever the specified event is delivered to the target.
      * @param event 
      * @param fn 
      */
@@ -17,7 +17,7 @@ export class EventEmitter {
     }
 
     /**
-     * Removes a listener from the event
+     * Removes an event listener previously registered with EventEmitter.on (once is not removed) from the target.
      * @param event
      * @param fn
      */
@@ -33,7 +33,7 @@ export class EventEmitter {
     }
 
     /**
-     * Adds a one-time listener to the event
+     * Sets up a function that will be called only once when the specified event is delivered to the destination.
      * @param event 
      * @param fn 
      */
@@ -47,9 +47,9 @@ export class EventEmitter {
     }
 
     /**
-     * Emits an event
-     * @param event 
-     * @param data 
+     * Sends a call to each function registered for the given event, passing all remaining parameters of this method to the function.
+     * @param event - The event to emit.
+     * @param data - The data to send to the event listeners. [rest operator]
      */
     emit(event: string, ...data: any[]) {
         this.listeners.get(event)?.forEach(fn => fn(...data));
