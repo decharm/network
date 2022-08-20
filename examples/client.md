@@ -1,4 +1,3 @@
-/**
 ```ts
 import { TCPClient } from "../mod.ts";
 
@@ -22,4 +21,3 @@ await client.connect("127.0.0.1", 7000);
 
 client.poll();
 ```
-*/
