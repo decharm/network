@@ -1,5 +1,5 @@
 ```ts
-import { TCPClient, TCPEvents } from "../mod.ts";
+import { TCPClient, TCPEvents, IEventData } from "../mod.ts";
 
 // Create a new TCP client
 const client = new TCPClient();
@@ -13,8 +13,10 @@ client.events.on(TCPEvents.CONNECT, async () => {
 });
 
 // Sets up the data listener to the server
-client.events.on(TCPEvents.RECEIVED_DATA, (buffer: Uint8Array) => {
-    console.log(new TextDecoder().decode(buffer));
+client.events.on(TCPEvents.RECEIVED_DATA, (event: IEventData) => {
+    console.log(
+        new TextDecoder().decode(event.data)
+    );
 });
 
 // Sets up the disconnected listener to the server

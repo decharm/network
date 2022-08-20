@@ -1,6 +1,5 @@
 ```ts
-import { IEventConnect, IEventError, IEventListening } from "../lib/tcp/interfaces.ts";
-import { TCPServer, TCPEvents } from "../mod.ts";
+import { TCPServer, TCPEvents, IEventConnect, IEventError, IEventListening } from "../mod.ts";
 
 // Create a server
 const server = new TCPServer();

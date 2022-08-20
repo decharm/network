@@ -1,4 +1,4 @@
-import { TCPClient, TCPEvents } from "../mod.ts";
+import { TCPClient, TCPEvents, IEventData } from "../mod.ts";
 
 const client = new TCPClient();
 
@@ -8,8 +8,10 @@ client.events.on(TCPEvents.CONNECT, async () => {
     await client.write(new TextEncoder().encode("Hello world"));
 });
 
-client.events.on(TCPEvents.RECEIVED_DATA, (buffer: Uint8Array) => {
-    console.log(new TextDecoder().decode(buffer));
+client.events.on(TCPEvents.RECEIVED_DATA, (event: IEventData) => {
+    console.log(
+        new TextDecoder().decode(event.data)
+    );
 });
 
 client.events.on(TCPEvents.DISCONNECT, () => {
