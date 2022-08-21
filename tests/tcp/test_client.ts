@@ -1,4 +1,4 @@
-import { TCPClient, TCPEvents, IEventData } from "../../src/mod.ts";
+import { TCPClient, TCPEvents, ITCPEventData } from "../../src/mod.ts";
 
 const client = new TCPClient();
 
@@ -8,7 +8,7 @@ client.events.on(TCPEvents.CONNECT, async () => {
     await client.write(new TextEncoder().encode("Hello world"));
 });
 
-client.events.on(TCPEvents.RECEIVED_DATA, (event: IEventData) => {
+client.events.on(TCPEvents.RECEIVED_DATA, (event: ITCPEventData) => {
     console.log(
         new TextDecoder().decode(event.data)
     );

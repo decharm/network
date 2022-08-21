@@ -1,16 +1,16 @@
-import { TCPServer, TCPEvents, IEventConnect, IEventError, IEventListening } from "../../src/mod.ts";
+import { TCPServer, TCPEvents, ITCPEventConnect, ITCPEventError, ITCPEventListening } from "../../src/mod.ts";
 
 const server = new TCPServer();
 
-server.events.on(TCPEvents.LISTENING, (event: IEventListening) => {
+server.events.on(TCPEvents.LISTENING, (event: ITCPEventListening) => {
     console.log(`Listening on ${event.address.host}:${event.address.port}`);
 });
 
-server.events.on(TCPEvents.ERROR, (event: IEventError) => {
+server.events.on(TCPEvents.ERROR, (event: ITCPEventError) => {
     console.log(event.error);
 });
 
-server.events.on(TCPEvents.CONNECT, (event: IEventConnect) => {
+server.events.on(TCPEvents.CONNECT, (event: ITCPEventConnect) => {
     event.client.events.on(TCPEvents.RECEIVED_DATA, (data: Uint8Array) => {
         console.log('Received:', new TextDecoder().decode(data as Uint8Array));
     });

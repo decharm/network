@@ -11,3 +11,5 @@ export * from "./tcp/interfaces.ts";
 
 // udp exports
 export * from "./udp/udp.ts";
+export * from "./udp/events.ts";
+export * from "./udp/interfaces.ts";

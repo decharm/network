@@ -31,7 +31,7 @@ export class TCPEvents {
     
     /**
      * Emitted when the server is listening for connections.
-     * @EventEmitter callback signature: ({host: string, port: number}) => void
+     * @EventEmitter callback signature: ({ address: { host: string, port: number }}) => void
      * @param address - The address the server is listening on.
      */
     public static readonly LISTENING = "listening";

@@ -1,5 +1,5 @@
 /**
- * Interfaces doesn't have IEventDisconnect because there's nothing to receive
+ * Interfaces doesn't have ITCPEventDisconnect because there's nothing to receive
  */
 import { TCPClient } from "./client.ts";
 
@@ -18,7 +18,7 @@ export interface ITCPEventConnect {
 }
 
 /**
- * Interface used on event disconnected callback.
+ * Interface used on event data callback.
  */
 export interface ITCPEventData {
     data : Uint8Array;
