@@ -1,9 +1,9 @@
 This framework aims to facilitate the creation of multiple-port servers that accept more than one connection. Addressing some blocked process issues you may encounter using the Deno API.
 
 ```ts
-import * as net from "https://deno.land/x/net@v1.1.1/src/mod.ts";
+import * as net from "https://deno.land/x/net@v1.1.2/src/mod.ts";
 // or
-import { stuff } from "https://deno.land/x/net@v1.1.1/src/mod.ts";
+import { stuff } from "https://deno.land/x/net@v1.1.2/src/mod.ts";
 ```
 <hr></hr>
 
