@@ -41,9 +41,14 @@ export class TCPClient {
      * Closes the connection
      */
     close() {
-        if (this.connection) {
+        if (this.connection && this.isConnected) {
             this.isConnected = false;
-            this.connection.close();
+
+            try {
+                this.connection.close();
+            } catch {
+                // ignore
+            }
         }
     }
 
