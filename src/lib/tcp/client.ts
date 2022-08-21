@@ -58,7 +58,7 @@ export class TCPClient {
             this.isConnected = true;
             this.events.emit("connected");
         } catch (error) {
-            this.events.emit(error);
+            this.events.emit("error", { error });
         }
     }
 
@@ -78,11 +78,11 @@ export class TCPClient {
     async poll() {
         if (this.connection) {
             try {
-                for await (const buffer of iterateReader(this.connection, { bufSize: 1024! })) {
-                    this.events.emit("data", buffer);
+                for await (const data of iterateReader(this.connection, { bufSize: 1024! })) {
+                    this.events.emit("data", { data });
                 }
             } catch(error) {
-                this.events.emit("error", error);
+                this.events.emit("error", { error});
             }
 
             this.close();

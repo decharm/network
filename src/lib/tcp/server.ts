@@ -26,10 +26,10 @@ export class TCPServer {
                 })
             );
 
-            this.events.emit("listening", { host, port });
+            this.events.emit("listening", { address: { host, port } });
             return true;
         } catch(error) {
-            this.events.emit("error", error);
+            this.events.emit("error", { error });
             return false;
         }
     }
@@ -40,7 +40,7 @@ export class TCPServer {
             
             this.clients.push(client);
 
-            this.events.emit("connected", client);
+            this.events.emit("connected", { client });
             client.poll();
         }
     }
